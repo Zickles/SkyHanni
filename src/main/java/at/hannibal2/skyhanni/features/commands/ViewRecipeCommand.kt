@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 
 object ViewRecipeCommand {
 
-    private val config get() = SkyHanniMod.feature.misc.commands
+    private val config get() = SkyHanniMod.feature.commands
 
     @SubscribeEvent
     fun onMessageSendToServer(event: MessageSendToServerEvent) {

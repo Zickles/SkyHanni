@@ -43,7 +43,7 @@ import kotlin.time.Duration.Companion.seconds
 
 object SkillProgress {
 
-    val config get() = SkyHanniMod.feature.skillProgress
+    private val config get() = SkyHanniMod.feature.skillProgress
     private val barConfig get() = config.skillProgressBarConfig
     private val allSkillConfig get() = config.allSkillDisplayConfig
     val etaConfig get() = config.skillETADisplayConfig

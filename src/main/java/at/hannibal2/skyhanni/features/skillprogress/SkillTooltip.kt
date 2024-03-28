@@ -1,5 +1,6 @@
 package at.hannibal2.skyhanni.features.skillprogress
 
+import at.hannibal2.skyhanni.SkyHanniMod
 import at.hannibal2.skyhanni.api.SkillAPI
 import at.hannibal2.skyhanni.api.SkillAPI.excludedSkills
 import at.hannibal2.skyhanni.events.LorenzToolTipEvent
@@ -16,8 +17,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 
 class SkillTooltip {
 
-    private val overflowConfig get() = SkillProgress.config.overflowConfig
-    private val customGoalConfig get() = SkillProgress.config.customGoalConfig
+    private val config get() = SkyHanniMod.feature.skillProgress
+    private val overflowConfig get() = config.overflowConfig
+    private val customGoalConfig get() = config.customGoalConfig
 
     @SubscribeEvent
     fun onTooltip(event: LorenzToolTipEvent) {

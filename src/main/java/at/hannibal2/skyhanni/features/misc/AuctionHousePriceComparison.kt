@@ -1,7 +1,6 @@
 package at.hannibal2.skyhanni.features.misc
 
 import at.hannibal2.skyhanni.SkyHanniMod
-import at.hannibal2.skyhanni.config.ConfigUpdaterMigrator
 import at.hannibal2.skyhanni.events.GuiContainerEvent
 import at.hannibal2.skyhanni.events.InventoryOpenEvent
 import at.hannibal2.skyhanni.events.LorenzToolTipEvent
@@ -21,7 +20,7 @@ import java.awt.Color
 
 class AuctionHousePriceComparison {
 
-    private val config get() = SkyHanniMod.feature.inventory.auctions.auctionsPriceComparison
+    private val config get() = SkyHanniMod.feature.inventory.auctionsPriceComparison
 
     private var slotPriceMap = mapOf<Int, Long>()
     private var bestPrice = 0L
@@ -116,11 +115,6 @@ class AuctionHousePriceComparison {
             event.toolTip.add("§cThis item is §6${(-diff).addSeparators()} coins §cmore")
             event.toolTip.add("§cexpensive than the estimated item value!")
         }
-    }
-
-    @SubscribeEvent
-    fun onConfigFix(event: ConfigUpdaterMigrator.ConfigFixEvent) {
-        event.move(31, "inventory.auctionsPriceComparison", "inventory.auctions.auctionsPriceComparison")
     }
 
     private fun getColorInBetween(color1: Color, color2: Color, percentage: Double): Color {

@@ -1,7 +1,6 @@
 package at.hannibal2.skyhanni.features.itemabilities.abilitycooldown
 
 import at.hannibal2.skyhanni.SkyHanniMod
-import at.hannibal2.skyhanni.config.ConfigUpdaterMigrator
 import at.hannibal2.skyhanni.data.ItemRenderBackground.Companion.background
 import at.hannibal2.skyhanni.events.ActionBarUpdateEvent
 import at.hannibal2.skyhanni.events.ItemClickEvent
@@ -35,7 +34,7 @@ import kotlin.math.max
 
 class ItemAbilityCooldown {
 
-    private val config get() = SkyHanniMod.feature.inventory.itemAbilities
+    private val config get() = SkyHanniMod.feature.itemAbilities
 
     private val patternGroup = RepoPattern.group("item.abilities.cooldown")
     private val youAlignedOthersPattern by patternGroup.pattern(
@@ -347,11 +346,6 @@ class ItemAbilityCooldown {
         youBuffedYourselfPattern.matchMatcher(message) {
             ItemAbility.SWORD_OF_BAD_HEALTH.activate()
         }
-    }
-
-    @SubscribeEvent
-    fun onConfigFix(event: ConfigUpdaterMigrator.ConfigFixEvent) {
-        event.move(31, "itemAbilities", "inventory.itemAbilities")
     }
 
     private fun hasAbility(stack: ItemStack): MutableList<ItemAbility> {

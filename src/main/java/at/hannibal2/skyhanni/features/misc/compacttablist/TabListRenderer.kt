@@ -1,7 +1,6 @@
 package at.hannibal2.skyhanni.features.misc.compacttablist
 
 import at.hannibal2.skyhanni.SkyHanniMod
-import at.hannibal2.skyhanni.config.ConfigUpdaterMigrator
 import at.hannibal2.skyhanni.events.GuiRenderEvent
 import at.hannibal2.skyhanni.events.SkipTabListLineEvent
 import at.hannibal2.skyhanni.utils.CollectionUtils.filterToMutable
@@ -20,7 +19,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 
 object TabListRenderer {
 
-    private val config get() = SkyHanniMod.feature.gui.compactTabList
+    private val config get() = SkyHanniMod.feature.misc.compactTabList
 
     const val maxLines = 22
     private const val lineHeight = 8 + 1
@@ -224,10 +223,5 @@ object TabListRenderer {
         if (config.hideFiresales && event.lastSubTitle != null && fireSalePattern.matches(event.lastSubTitle.text)) {
             event.cancel()
         }
-    }
-
-    @SubscribeEvent
-    fun onConfigFix(event: ConfigUpdaterMigrator.ConfigFixEvent) {
-        event.move(31, "misc.compactTabList", "gui.compactTabList")
     }
 }

@@ -3,9 +3,6 @@ package at.hannibal2.skyhanni.config.features.inventory;
 import at.hannibal2.skyhanni.config.FeatureToggle;
 import at.hannibal2.skyhanni.config.HasLegacyId;
 import at.hannibal2.skyhanni.config.features.inventory.helper.HelperConfig;
-import at.hannibal2.skyhanni.config.features.itemability.ItemAbilityConfig;
-import at.hannibal2.skyhanni.config.features.misc.EstimatedItemValueConfig;
-import at.hannibal2.skyhanni.config.features.misc.PocketSackInASackConfig;
 import com.google.gson.annotations.Expose;
 import io.github.moulberry.moulconfig.annotations.Accordion;
 import io.github.moulberry.moulconfig.annotations.Category;
@@ -23,26 +20,6 @@ import static at.hannibal2.skyhanni.config.features.inventory.InventoryConfig.It
 import static at.hannibal2.skyhanni.config.features.inventory.InventoryConfig.ItemNumberEntry.VACUUM_GARDEN;
 
 public class InventoryConfig {
-
-    @Expose
-    @Category(name = "Skyblock Guide", desc = "")
-    public SkyblockGuideConfig skyblockGuideConfig = new SkyblockGuideConfig();
-
-    @Expose
-    @Category(name = "Auction House", desc = "")
-    public AuctionHouseConfig auctions = new AuctionHouseConfig();
-
-    @Expose
-    @Category(name = "Bazaar", desc = "Bazaar settings.")
-    public BazaarConfig bazaar = new BazaarConfig();
-
-    @Expose
-    @Category(name = "Helpers", desc = "Settings for Helpers")
-    public HelperConfig helper = new HelperConfig();
-
-    @Expose
-    @Category(name = "Item Abilities", desc = "Stuff about item abilities.")
-    public ItemAbilityConfig itemAbilities = new ItemAbilityConfig();
 
     @Expose
     @ConfigOption(name = "Not Clickable Items", desc = "")
@@ -64,15 +41,11 @@ public class InventoryConfig {
     @Accordion
     public JacobFarmingContestConfig jacobFarmingContests = new JacobFarmingContestConfig();
 
+
     @Expose
     @ConfigOption(name = "Sack Items Display", desc = "")
     @Accordion
     public SackDisplayConfig sackDisplay = new SackDisplayConfig();
-
-    @Expose
-    @ConfigOption(name = "Estimated Item Value", desc = "(Prices for Enchantments, Reforge Stones, Gemstones, Drill Parts and more)")
-    @Accordion
-    public EstimatedItemValueConfig estimatedItemValues = new EstimatedItemValueConfig();
 
     @Expose
     @ConfigOption(name = "Chest Value", desc = "")
@@ -80,14 +53,31 @@ public class InventoryConfig {
     public ChestValueConfig chestValueConfig = new ChestValueConfig();
 
     @Expose
+    @Category(name = "Skyblock Guide", desc = "")
+    public SkyblockGuideConfig skyblockGuideConfig = new SkyblockGuideConfig();
+
+    @Expose
+    @Category(name = "Bazaar", desc = "Bazaar settings.")
+    public BazaarConfig bazaar = new BazaarConfig();
+
+    @Expose
+    @Category(name = "Helpers", desc = "Settings for Helpers")
+    public HelperConfig helper = new HelperConfig();
+
+    @Expose
     @ConfigOption(name = "Get From Sack", desc = "")
     @Accordion
     public GetFromSackConfig gfs = new GetFromSackConfig();
 
-    @ConfigOption(name = "Pocket Sack-In-A-Sack", desc = "")
-    @Accordion
     @Expose
-    public PocketSackInASackConfig pocketSackInASack = new PocketSackInASackConfig();
+    @ConfigOption(name = "Auctions", desc = "")
+    @Accordion
+    public AuctionHouseConfig auctions = new AuctionHouseConfig();
+
+    @Expose
+    @ConfigOption(name = "Auctions Price Comparison", desc = "")
+    @Accordion
+    public AuctionHousePriceComparisonConfig auctionsPriceComparison = new AuctionHousePriceComparisonConfig();
 
     @Expose
     @ConfigOption(
